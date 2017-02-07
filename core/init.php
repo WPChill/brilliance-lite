@@ -38,6 +38,10 @@ if(!function_exists('cpotheme_setup')){
 		$locale = get_locale();
 		$locale_file = get_template_directory()."/languages/$locale.php";
 		if(is_readable($locale_file)) require_once($locale_file);
+
+		// Add welcome page
+		require get_template_directory() . '/core/welcome-screen/welcome-page-setup.php';
+
 	}
 }
 
@@ -129,7 +133,7 @@ if(defined('CPOTHEME_CORELITE')) $core_path = CPOTHEME_CORELITE;
 require_once($core_path.'classes/class_customizer.php');
 require_once($core_path.'classes/class_menu.php');
 //Main Components
-require_once($core_path.'admin.php');
+// require_once($core_path.'admin.php');
 require_once($core_path.'functions.php');
 require_once($core_path.'markup.php');
 require_once($core_path.'filters.php');
