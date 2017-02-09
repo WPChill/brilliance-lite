@@ -3,7 +3,7 @@
  * Changelog
  */
 
-$theme_name = wp_get_theme( 'theme_name' );
+$brilliance = wp_get_theme( 'brilliance' );
 
 ?>
 <div class="featured-section changelog">
@@ -12,13 +12,13 @@ $theme_name = wp_get_theme( 'theme_name' );
 	<?php
 	WP_Filesystem();
 	global $wp_filesystem;
-	$theme_name_changelog       = $wp_filesystem->get_contents( get_template_directory() . '/changelog.txt' );
-	$theme_name_changelog_lines = explode( PHP_EOL, $theme_name_changelog );
-	foreach ( $theme_name_changelog_lines as $theme_name_changelog_line ) {
-		if ( substr( $theme_name_changelog_line, 0, 3 ) === "###" ) {
-			echo '<h4>' . substr( $theme_name_changelog_line, 3 ) . '</h4>';
+	$brilliance_changelog       = $wp_filesystem->get_contents( get_template_directory() . '/changelog.txt' );
+	$brilliance_changelog_lines = explode( PHP_EOL, $brilliance_changelog );
+	foreach ( $brilliance_changelog_lines as $brilliance_changelog_line ) {
+		if ( substr( $brilliance_changelog_line, 0, 3 ) === "###" ) {
+			echo '<h4>' . substr( $brilliance_changelog_line, 3 ) . '</h4>';
 		} else {
-			echo $theme_name_changelog_line, '<br/>';
+			echo $brilliance_changelog_line, '<br/>';
 		}
 
 

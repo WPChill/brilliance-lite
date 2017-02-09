@@ -10,33 +10,57 @@ class Brilliance_Welcome {
 	 */
 	public function __construct() {
 		/* create dashbord page */
-		add_action( 'admin_menu', array( $this, 'theme_name_welcome_register_menu' ) );
+		add_action( 'admin_menu', array( $this, 'brilliance_welcome_register_menu' ) );
 
 		/* activation notice */
-		add_action( 'load-themes.php', array( $this, 'theme_name_activation_admin_notice' ) );
+		add_action( 'load-themes.php', array( $this, 'brilliance_activation_admin_notice' ) );
 
 		/* enqueue script and style for welcome screen */
-		add_action( 'admin_enqueue_scripts', array( $this, 'theme_name_welcome_style_and_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'brilliance_welcome_style_and_scripts' ) );
 
 		/* enqueue script for customizer */
-		add_action( 'customize_controls_enqueue_scripts', array( $this, 'theme_name_welcome_scripts_for_customizer' ) );
+		// add_action( 'customize_controls_enqueue_scripts', array( $this, 'brilliance_welcome_scripts_for_customizer' ) );
 
 		/* ajax callback for dismissable required actions */
-		add_action( 'wp_ajax_theme_name_dismiss_required_action', array(
+		add_action( 'wp_ajax_brilliance_dismiss_required_action', array(
 			$this,
-			'theme_name_dismiss_required_action_callback'
+			'brilliance_dismiss_required_action_callback'
 		) );
-		add_action( 'wp_ajax_nopriv_theme_name_dismiss_required_action', array(
+		add_action( 'wp_ajax_nopriv_brilliance_dismiss_required_action', array(
 			$this,
-			'theme_name_dismiss_required_action_callback'
+			'brilliance_dismiss_required_action_callback'
 		) );
 
-		add_action( 'admin_init', array( $this, 'theme_name_activate_plugin' ) );
-		add_action( 'admin_init', array( $this, 'theme_name_deactivate_plugin' ) );
-		add_action( 'admin_init', array( $this, 'theme_name_set_pages' ) );
+		add_action( 'admin_init', array( $this, 'brilliance_activate_plugin' ) );
+		add_action( 'admin_init', array( $this, 'brilliance_deactivate_plugin' ) );
+		add_action( 'admin_init', array( $this, 'brilliance_set_pages' ) );
+		// add_action( 'customize_register', array( $this, 'customize_register' ) );
 	}
 
-	public function theme_name_set_pages() {
+	public function customize_register( $wp_customize ){
+
+		require_once get_template_directory() . '/core/welcome-screen/custom-recommend-action-section.php';
+		$wp_customize->register_section_type( 'Brilliance_Customize_Section_Recommend' );
+
+		// Recomended Actions
+		$wp_customize->add_section(
+			new Brilliance_Customize_Section_Recommend(
+				$wp_customize,
+				'brilliance_recomended-section',
+				array(
+					'title'    => esc_html__( 'Recomended Actions', 'brilliance' ),
+					'succes_text'	=> esc_html__( 'Follow us on :', 'brilliance' ),
+					'facebook' => 'https://www.facebook.com/colorlib',
+					'twitter' => 'https://twitter.com/colorlib',
+					'wp_review' => true,
+					'priority' => 0
+				)
+			)
+		);
+
+	}
+
+	public function brilliance_set_pages() {
 		if ( ! empty( $_GET ) ) {
 			/**
 			 * Check action
@@ -57,7 +81,7 @@ class Brilliance_Welcome {
 	}
 
 
-	public function theme_name_activate_plugin() {
+	public function brilliance_activate_plugin() {
 		if ( ! empty( $_GET ) ) {
 			/**
 			 * Check action
@@ -70,7 +94,7 @@ class Brilliance_Welcome {
 		}
 	}
 
-	public function theme_name_deactivate_plugin() {
+	public function brilliance_deactivate_plugin() {
 		if ( ! empty( $_GET ) ) {
 			/**
 			 * Check action
@@ -94,13 +118,13 @@ class Brilliance_Welcome {
 	 * @see   add_theme_page()
 	 * @since 1.8.2.4
 	 */
-	public function theme_name_welcome_register_menu() {
+	public function brilliance_welcome_register_menu() {
 		$action_count = $this->count_actions();
 		$title        = $action_count > 0 ? 'About Brilliance <span class="badge-action-count">' . esc_html( $action_count ) . '</span>' : 'About Brilliance';
 
 		add_theme_page( 'About Brilliance', $title, 'edit_theme_options', 'cpotheme-welcome', array(
 			$this,
-			'theme_name_welcome_screen'
+			'brilliance_welcome_screen'
 		) );
 	}
 
@@ -109,11 +133,11 @@ class Brilliance_Welcome {
 	 *
 	 * @since 1.8.2.4
 	 */
-	public function theme_name_activation_admin_notice() {
+	public function brilliance_activation_admin_notice() {
 		global $pagenow;
 
 		if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
-			add_action( 'admin_notices', array( $this, 'theme_name_welcome_admin_notice' ), 99 );
+			add_action( 'admin_notices', array( $this, 'brilliance_welcome_admin_notice' ), 99 );
 		}
 	}
 
@@ -122,7 +146,7 @@ class Brilliance_Welcome {
 	 *
 	 * @since 1.8.2.4
 	 */
-	public function theme_name_welcome_admin_notice() {
+	public function brilliance_welcome_admin_notice() {
 		?>
 		<div class="updated notice is-dismissible">
 			<p><?php echo sprintf( esc_html__( 'Welcome! Thank you for choosing Brilliance! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s.', 'brilliance' ), '<a href="' . esc_url( admin_url( 'themes.php?page=cpotheme-welcome' ) ) . '">', '</a>' ); ?></p>
@@ -137,17 +161,18 @@ class Brilliance_Welcome {
 	 *
 	 * @since  1.8.2.4
 	 */
-	public function theme_name_welcome_style_and_scripts( $hook_suffix ) {
+	public function brilliance_welcome_style_and_scripts( $hook_suffix ) {
 
 		wp_enqueue_style( 'cpotheme-welcome-screen-css', get_template_directory_uri() . '/core/welcome-screen/css/welcome.css' );
-		wp_enqueue_script( 'cpotheme-welcome-screen-js', get_template_directory_uri() . '/core/welcome-screen/js/welcome.js', array( 'jquery' ) );
+		wp_enqueue_script( 'cpotheme-welcome-screen-js', get_template_directory_uri() . '/core/welcome-screen/js/welcome.js', array( 'jquery' ), '1.0', true );
 
-		wp_localize_script( 'cpotheme-welcome-screen-js', 'theme_nameWelcomeScreenObject', array(
+		wp_localize_script( 'cpotheme-welcome-screen-js', 'brillianceWelcomeScreenObject', array(
 			'nr_actions_required'      => $this->count_actions(),
 			'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
 			'template_directory'       => get_template_directory_uri(),
-			'no_required_actions_text' => __( 'Hooray! There are no required actions for you right now.', 'brilliance' )
+			'no_required_actions_text' => __( 'Hooray! There are no required actions for you right now.', 'text-domain' )
 		) );
+
 
 	}
 
@@ -156,17 +181,15 @@ class Brilliance_Welcome {
 	 *
 	 * @since  1.8.2.4
 	 */
-	public function theme_name_welcome_scripts_for_customizer() {
+	public function brilliance_welcome_scripts_for_customizer() {
 
 		wp_enqueue_style( 'cpotheme-welcome-screen-customizer-css', get_template_directory_uri() . '/core/welcome-screen/css/welcome_customizer.css' );
-		wp_enqueue_script( 'cpotheme-welcome-screen-customizer-js', get_template_directory_uri() . '/core/welcome-screen/js/welcome_customizer.js', array( 'jquery' ), '20120206', true );
+		wp_enqueue_style( 'plugin-install' );
+		wp_enqueue_script( 'plugin-install' );
+		wp_enqueue_script( 'updates' );
+		wp_add_inline_script( 'plugin-install', 'var pagenow = "customizer";' );
+		wp_enqueue_script( 'cpotheme-welcome-screen-customizer-js', get_template_directory_uri() . '/core/welcome-screen/js/welcome_customizer.js', array( 'customize-controls' ), '1.0', true );
 
-		wp_localize_script( 'cpotheme-welcome-screen-customizer-js', 'theme_nameWelcomeScreenCustomizerObject', array(
-			'nr_actions_required' => $this->count_actions(),
-			'aboutpage'           => esc_url( admin_url( 'themes.php?page=cpotheme-welcome&tab=recommended_actions' ) ),
-			'customizerpage'      => esc_url( admin_url( 'customize.php#recommended_actions' ) ),
-			'themeinfo'           => __( 'View Theme Info', 'brilliance' ),
-		) );
 	}
 
 	/**
@@ -174,43 +197,43 @@ class Brilliance_Welcome {
 	 *
 	 * @since 1.8.2.4
 	 */
-	public function theme_name_dismiss_required_action_callback() {
+	public function brilliance_dismiss_required_action_callback() {
 
-		global $theme_name_required_actions;
+		global $brilliance_required_actions;
 
-		$theme_name_dismiss_id = ( isset( $_GET['dismiss_id'] ) ) ? $_GET['dismiss_id'] : 0;
+		$brilliance_dismiss_id = ( isset( $_GET['dismiss_id'] ) ) ? $_GET['dismiss_id'] : 0;
 
-		echo $theme_name_dismiss_id; /* this is needed and it's the id of the dismissable required action */
+		echo $brilliance_dismiss_id; /* this is needed and it's the id of the dismissable required action */
 
-		if ( ! empty( $theme_name_dismiss_id ) ):
+		if ( ! empty( $brilliance_dismiss_id ) ):
 
 			/* if the option exists, update the record for the specified id */
-			if ( get_option( 'theme_name_show_required_actions' ) ):
+			if ( get_option( 'brilliance_show_required_actions' ) ):
 
-				$theme_name_show_required_actions = get_option( 'theme_name_show_required_actions' );
+				$brilliance_show_required_actions = get_option( 'brilliance_show_required_actions' );
 
-				$theme_name_show_required_actions[ $theme_name_dismiss_id ] = false;
+				$brilliance_show_required_actions[ $brilliance_dismiss_id ] = false;
 
-				update_option( 'theme_name_show_required_actions', $theme_name_show_required_actions );
+				update_option( 'brilliance_show_required_actions', $brilliance_show_required_actions );
 
 			/* create the new option,with false for the specified id */
 			else:
 
-				$theme_name_show_required_actions_new = array();
+				$brilliance_show_required_actions_new = array();
 
-				if ( ! empty( $theme_name_required_actions ) ):
+				if ( ! empty( $brilliance_required_actions ) ):
 
-					foreach ( $theme_name_required_actions as $theme_name_required_action ):
+					foreach ( $brilliance_required_actions as $brilliance_required_action ):
 
-						if ( $theme_name_required_action['id'] == $theme_name_dismiss_id ):
-							$theme_name_show_required_actions_new[ $theme_name_required_action['id'] ] = false;
+						if ( $brilliance_required_action['id'] == $brilliance_dismiss_id ):
+							$brilliance_show_required_actions_new[ $brilliance_required_action['id'] ] = false;
 						else:
-							$theme_name_show_required_actions_new[ $theme_name_required_action['id'] ] = true;
+							$brilliance_show_required_actions_new[ $brilliance_required_action['id'] ] = true;
 						endif;
 
 					endforeach;
 
-					update_option( 'theme_name_show_required_actions', $theme_name_show_required_actions_new );
+					update_option( 'brilliance_show_required_actions', $brilliance_show_required_actions_new );
 
 				endif;
 
@@ -225,15 +248,15 @@ class Brilliance_Welcome {
 	 *
 	 */
 	public function count_actions() {
-		global $theme_name_required_actions;
+		global $brilliance_required_actions;
 
-		$theme_name_show_required_actions = get_option( 'theme_name_show_required_actions' );
-		if ( ! $theme_name_show_required_actions ) {
-			$theme_name_show_required_actions = array();
+		$brilliance_show_required_actions = get_option( 'brilliance_show_required_actions' );
+		if ( ! $brilliance_show_required_actions ) {
+			$brilliance_show_required_actions = array();
 		}
 
 		$i = 0;
-		foreach ( $theme_name_required_actions as $action ) {
+		foreach ( $brilliance_required_actions as $action ) {
 			$true      = false;
 			$dismissed = false;
 
@@ -241,7 +264,7 @@ class Brilliance_Welcome {
 				$true = true;
 			}
 
-			if ( ! empty( $theme_name_show_required_actions ) && isset( $theme_name_show_required_actions[ $action['id'] ] ) && ! $theme_name_show_required_actions[ $action['id'] ] ) {
+			if ( ! empty( $brilliance_show_required_actions ) && isset( $brilliance_show_required_actions[ $action['id'] ] ) && ! $brilliance_show_required_actions[ $action['id'] ] ) {
 				$true = false;
 			}
 
@@ -257,7 +280,7 @@ class Brilliance_Welcome {
 	public function call_plugin_api( $slug ) {
 		include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
 
-		if ( false === ( $call_api = get_transient( 'theme_name_plugin_information_transient_' . $slug ) ) ) {
+		if ( false === ( $call_api = get_transient( 'brilliance_plugin_information_transient_' . $slug ) ) ) {
 			$call_api = plugins_api( 'plugin_information', array(
 				'slug'   => $slug,
 				'fields' => array(
@@ -278,7 +301,7 @@ class Brilliance_Welcome {
 					'icons'             => true
 				)
 			) );
-			set_transient( 'theme_name_plugin_information_transient_' . $slug, $call_api, 30 * MINUTE_IN_SECONDS );
+			set_transient( 'brilliance_plugin_information_transient_' . $slug, $call_api, 30 * MINUTE_IN_SECONDS );
 		}
 
 		return $call_api;
@@ -350,12 +373,12 @@ class Brilliance_Welcome {
 	 *
 	 * @since 1.8.2.4
 	 */
-	public function theme_name_welcome_screen() {
+	public function brilliance_welcome_screen() {
 		require_once( ABSPATH . 'wp-load.php' );
 		require_once( ABSPATH . 'wp-admin/admin.php' );
 		require_once( ABSPATH . 'wp-admin/admin-header.php' );
 
-		$theme_name      = wp_get_theme();
+		$brilliance      = wp_get_theme();
 		$active_tab   = isset( $_GET['tab'] ) ? $_GET['tab'] : 'getting_started';
 		$action_count = $this->count_actions();
 
@@ -363,7 +386,7 @@ class Brilliance_Welcome {
 
 		<div class="wrap about-wrap epsilon-wrap">
 
-			<h1><?php echo __( 'Welcome to Brilliance! - Version ', 'brilliance' ) . $theme_name['Version']; ?></h1>
+			<h1><?php echo __( 'Welcome to Brilliance! - Version ', 'brilliance' ) . $brilliance['Version']; ?></h1>
 
 			<div
 				class="about-text"><?php echo esc_html__( 'Brilliance is now installed and ready to use! Get ready to build something beautiful. We hope you enjoy it! We want to make sure you have the best experience using Brilliance and that is why we gathered here all the necessary information for you. We hope you will enjoy using Brilliance, as much as we enjoy creating great products.', 'brilliance' ); ?></div>

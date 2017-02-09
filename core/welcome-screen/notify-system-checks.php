@@ -11,9 +11,9 @@ if ( ! class_exists( 'MT_Notify_System' ) ) {
 		 * @return mixed
 		 */
 		public static function version_check( $ver ) {
-			$theme_name = wp_get_theme();
+			$brilliance = wp_get_theme();
 
-			return version_compare( $theme_name['Version'], $ver, '>=' );
+			return version_compare( $brilliance['Version'], $ver, '>=' );
 		}
 
 		/**

@@ -2,14 +2,14 @@
 /**
  * Recommended Plugins
  */
-global $theme_name_required_actions, $theme_name_recommended_plugins;
+global $brilliance_required_actions, $brilliance_recommended_plugins;
 wp_enqueue_style( 'plugin-install' );
 wp_enqueue_script( 'plugin-install' );
 wp_enqueue_script( 'updates' );
 ?>
 
 <div class="feature-section recommended-plugins three-col demo-import-boxed" id="plugin-filter">
-	<?php foreach ( $theme_name_recommended_plugins as $plugin => $prop ) { ?>
+	<?php foreach ( $brilliance_recommended_plugins as $plugin => $prop ) { ?>
 		<?php
 		$info   = $this->call_plugin_api( $plugin );
 		$icon   = $this->check_for_icon( $info->icons );

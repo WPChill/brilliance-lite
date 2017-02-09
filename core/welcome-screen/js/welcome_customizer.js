@@ -1,11 +1,15 @@
-jQuery(document).ready(function () {
-    var theme_name_aboutpage = theme_nameWelcomeScreenCustomizerObject.aboutpage;
-    var theme_name_nr_actions_required = theme_nameWelcomeScreenCustomizerObject.nr_actions_required;
+( function( api ) {
 
-    /* Number of required actions */
-    if ((typeof theme_name_aboutpage !== 'undefined') && (typeof theme_name_nr_actions_required !== 'undefined') && (theme_name_nr_actions_required != '0')) {
-        jQuery('#accordion-section-themes .accordion-section-title').append('<a href="' + theme_name_aboutpage + '"><span class="theme_name-actions-count">' + theme_name_nr_actions_required + '</span></a>');
-    }
+	// Extends our custom "brilliance-pro-section" section.
+	api.sectionConstructor['brilliance-recomended-section'] = api.Section.extend( {
 
+		// No events for this type of section.
+		attachEvents: function () {},
 
-});
+		// Always make the section active.
+		isContextuallyActive: function () {
+			return true;
+		}
+	} );
+
+} )( wp.customize );
