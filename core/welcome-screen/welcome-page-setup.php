@@ -14,9 +14,9 @@ function a_customize_register($wp_customize){
 				'brilliance_recomended-section',
 				array(
 					'title'    => esc_html__( 'Recomended Actions', 'brilliance' ),
-					'succes_text'	=> esc_html__( 'Follow us on :', 'brilliance' ),
-					'facebook' => 'https://www.facebook.com/colorlib',
-					'twitter' => 'https://twitter.com/colorlib',
+					'succes_text'	=> __( "We're social :", 'affluent' ),
+					'facebook' => 'https://www.facebook.com/cpothemes/',
+					'twitter' => 'https://twitter.com/cpothemes',
 					'wp_review' => true,
 					'priority' => 0
 				)
@@ -29,6 +29,10 @@ add_action( 'customize_controls_enqueue_scripts', 'brilliance_welcome_scripts_fo
 
 function brilliance_welcome_scripts_for_customizer(){
 	wp_enqueue_style( 'cpotheme-welcome-screen-customizer-css', get_template_directory_uri() . '/core/welcome-screen/css/welcome_customizer.css' );
+	wp_enqueue_style( 'plugin-install' );
+	wp_enqueue_script( 'plugin-install' );
+	wp_enqueue_script( 'updates' );
+	wp_add_inline_script( 'plugin-install', 'var pagenow = "customizer";' );
 	wp_enqueue_script( 'cpotheme-welcome-screen-customizer-js', get_template_directory_uri() . '/core/welcome-screen/js/welcome_customizer.js', array( 'customize-controls' ), '1.0', true );
 }
 
