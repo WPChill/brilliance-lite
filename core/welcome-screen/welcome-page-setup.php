@@ -77,7 +77,7 @@ if ( is_admin() ) {
 		),
 		array(
 			"id"          => 'brilliance-req-ac-install-cpo-widgets',
-			"title"       => MT_Notify_System::create_plugin_requirement_title( __( 'Install: CPO Widgets', 'brilliance' ), __( 'Activate: CPO Widgets', 'brilliance' ), 'cpo-content-types' ),
+			"title"       => MT_Notify_System::create_plugin_requirement_title( __( 'Install: CPO Widgets', 'brilliance' ), __( 'Activate: CPO Widgets', 'brilliance' ), 'cpo-widgets' ),
 			"description" => __( 'It is highly recommended that you install the CPO Widgets plugin. It will help you manage all the special widgets that this theme supports.', 'brilliance' ),
 			"check"       => MT_Notify_System::has_import_plugin( 'cpo-widgets' ),
 			"plugin_slug" => 'cpo-widgets'
