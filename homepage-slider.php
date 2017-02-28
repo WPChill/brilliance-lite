@@ -1,5 +1,5 @@
 <?php $query = new WP_Query('post_type=cpo_slide&posts_per_page=-1&order=ASC&orderby=menu_order'); ?>
-<div id="slider" class="slider secondary-color-bg">
+<div id="slider" class="slider dark secondary-color-bg">
 	<?php if($query->posts): $slide_count = 0; ?>
 	<div class="slider-slides cycle-slideshow" data-cycle-pause-on-hover="true" data-cycle-slides=".slide" data-cycle-pager=".slider-pages" data-cycle-timeout="8000" data-cycle-speed="1500" data-cycle-fx="fade">
 		<?php foreach($query->posts as $post): setup_postdata($post); ?>
