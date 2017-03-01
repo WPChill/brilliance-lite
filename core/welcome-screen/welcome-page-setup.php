@@ -100,7 +100,7 @@ if ( is_admin() ) {
 			"id"          => 'brilliance-req-ac-download-data',
 			"title"       => esc_html__( 'Download theme sample data', 'brilliance' ),
 			"description" => esc_html__( 'Head over to our website and download the sample content data.', 'brilliance' ),
-			"help"        => '<a target="_blank"  href="https://www.cpothemes.com/sample-data/brilliance-lite-posts.xml">' . __( 'Posts', 'brilliance' ) . '</a>, 
+			"help"        => '<a target="_blank"  href="https://www.cpothemes.com/sample-data/brilliance-pro-posts.xml">' . __( 'Posts', 'brilliance' ) . '</a>, 
 							   <a target="_blank"  href="https://www.cpothemes.com/sample-data/brilliance-pro-widgets.wie">' . __( 'Widgets', 'brilliance' ) . '</a>',
 			"check"       => MT_Notify_System::has_content(),
 		),
