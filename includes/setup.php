@@ -74,11 +74,7 @@ function cpotheme_theme_settings($data){
 	unset($data['home_features']);
 	$data['home_tagline']['default'] = false;
 	$data['home_posts']['default'] = true;
-	$data['header_opaque'] = array(
-	'label' => __('Enable Opaque Header', 'brilliance'),
-	'section' => 'cpotheme_layout_general',
-	'type' => 'checkbox',
-	'default' => '0');
+	
 	
 	return $data;
 }

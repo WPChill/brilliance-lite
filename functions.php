@@ -14,6 +14,15 @@ define('CPOTHEME_THUMBNAIL_WIDTH', '400');
 define('CPOTHEME_THUMBNAIL_HEIGHT', '400');
 define('CPOTHEME_PREMIUM_NAME', 'Brilliance Pro');
 define('CPOTHEME_PREMIUM_URL', 'http://www.cpothemes.com/theme/brilliance');
+
+// Add epsilon framework
+require get_template_directory() . '/includes/libraries/epsilon-framework/class-epsilon-autoloader.php';
+$epsilon_framework_settings = array(
+		'controls' 	=> array( 'toggle', 'upsell' ), // array of controls to load
+		'sections' 	=> array( 'recommended-actions' ), // array of sections to load
+		'path'		=> '/includes/libraries'
+	);
+new Epsilon_Framework( $epsilon_framework_settings );
 		
 //Load Core; check existing core or load development core
 $core_path = get_template_directory().'/core/';

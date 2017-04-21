@@ -20,6 +20,11 @@ if(!function_exists('cpotheme_metadata_sections')){
 	function cpotheme_metadata_sections(){
 		$data = array();
 		
+		$data['cpotheme_upsell'] = array(
+		'title' => __('Brilliance Pro', 'brilliance'),
+		'capability' => 'edit_theme_options',
+		'priority' => 10);
+
 		$data['cpotheme_management'] = array(
 		'title' => __('General Theme Options', 'brilliance'),
 		'description' => __('Options that help you manage your theme better.', 'brilliance'),
@@ -28,14 +33,12 @@ if(!function_exists('cpotheme_metadata_sections')){
 		
 		$data['cpotheme_layout_general'] = array(
 		'title' => __('Site Wide Structure', 'brilliance'),
-		'description' => sprintf(__('Upgrade to %s to control the layout of your sidebars and other global elements.', 'brilliance'), cpotheme_upgrade_link()),
 		'capability' => 'edit_theme_options',
 		'panel' => 'cpotheme_layout',
 		'priority' => 25);
 		
 		$data['cpotheme_layout_home'] = array(
 		'title' => __('Homepage', 'brilliance'),
-		'description' => sprintf(__('Upgrade to %s to control the ordering of elements in the homepage as well as its behavior.', 'brilliance'), cpotheme_upgrade_link()),
 		'capability' => 'edit_theme_options',
 		'panel' => 'cpotheme_layout',
 		'priority' => 50);
@@ -43,7 +46,6 @@ if(!function_exists('cpotheme_metadata_sections')){
 		if(defined('CPOTHEME_USE_SLIDES') && CPOTHEME_USE_SLIDES == true){
 			$data['cpotheme_layout_slider'] = array(
 			'title' => __('Slider', 'brilliance'),
-			'description' => sprintf(__('Upgrade to %s to customize the behavior of the slider.', 'brilliance'), cpotheme_upgrade_link()),
 			'capability' => 'edit_theme_options',
 			'panel' => 'cpotheme_layout',
 			'priority' => 50);
@@ -52,7 +54,6 @@ if(!function_exists('cpotheme_metadata_sections')){
 		if(defined('CPOTHEME_USE_FEATURES') && CPOTHEME_USE_FEATURES == true){
 			$data['cpotheme_layout_features'] = array(
 			'title' => __('Features', 'brilliance'),
-			'description' => sprintf(__('Upgrade to %s to customize the columns and appearance of the feature blocks.', 'brilliance'), cpotheme_upgrade_link()),
 			'capability' => 'edit_theme_options',
 			'panel' => 'cpotheme_layout',
 			'priority' => 50);
@@ -61,7 +62,6 @@ if(!function_exists('cpotheme_metadata_sections')){
 		if(defined('CPOTHEME_USE_PORTFOLIO') && CPOTHEME_USE_PORTFOLIO == true){
 			$data['cpotheme_layout_portfolio'] = array(
 			'title' => __('Portfolio', 'brilliance'),
-			'description' => sprintf(__('Upgrade to %s to control the number of portfolio columns, related portfolio items, and overall appearance.', 'brilliance'), cpotheme_upgrade_link()),
 			'capability' => 'edit_theme_options',
 			'panel' => 'cpotheme_layout',
 			'priority' => 50);
@@ -70,7 +70,6 @@ if(!function_exists('cpotheme_metadata_sections')){
 		if(defined('CPOTHEME_USE_SERVICES') && CPOTHEME_USE_SERVICES == true){
 			$data['cpotheme_layout_services'] = array(
 			'title' => __('Services', 'brilliance'),
-			'description' => sprintf(__('Upgrade to %s to control the number of columns for services.', 'brilliance'), cpotheme_upgrade_link()),
 			'capability' => 'edit_theme_options',
 			'panel' => 'cpotheme_layout',
 			'priority' => 50);
@@ -79,7 +78,6 @@ if(!function_exists('cpotheme_metadata_sections')){
 		if(defined('CPOTHEME_USE_TEAM') && CPOTHEME_USE_TEAM == true){
 			$data['cpotheme_layout_team'] = array(
 			'title' => __('Team Members', 'brilliance'),
-			'description' => sprintf(__('Upgrade to %s to control the number of columns of the team section.', 'brilliance'), cpotheme_upgrade_link()),
 			'capability' => 'edit_theme_options',
 			'panel' => 'cpotheme_layout',
 			'priority' => 50);
@@ -88,7 +86,6 @@ if(!function_exists('cpotheme_metadata_sections')){
 		if(defined('CPOTHEME_USE_TESTIMONIALS') && CPOTHEME_USE_TESTIMONIALS == true){
 			$data['cpotheme_layout_testimonials'] = array(
 			'title' => __('Testimonials', 'brilliance'),
-			'description' => sprintf(__('Upgrade to %s to customize the appearance of testimonials.', 'brilliance'), cpotheme_upgrade_link()),
 			'capability' => 'edit_theme_options',
 			'panel' => 'cpotheme_layout',
 			'priority' => 50);
@@ -97,7 +94,6 @@ if(!function_exists('cpotheme_metadata_sections')){
 		if(defined('CPOTHEME_USE_CLIENTS') && CPOTHEME_USE_CLIENTS == true){
 			$data['cpotheme_layout_clients'] = array(
 			'title' => __('Clients', 'brilliance'),
-			'description' => sprintf(__('Upgrade to %s to customize the appearance of clients.', 'brilliance'), cpotheme_upgrade_link()),
 			'capability' => 'edit_theme_options',
 			'panel' => 'cpotheme_layout',
 			'priority' => 50);
@@ -111,14 +107,12 @@ if(!function_exists('cpotheme_metadata_sections')){
 
 		$data['cpotheme_layout_posts'] = array(
 		'title' => __('Blog Posts', 'brilliance'),
-		'description' => sprintf(__('Upgrade to %s to control the appearance of specific elements in your blog posts such as dates, authors, or comments.', 'brilliance'), cpotheme_upgrade_link()),
 		'capability' => 'edit_theme_options',
 		'panel' => 'cpotheme_layout',
 		'priority' => 50);
 		
 		$data['cpotheme_typography'] = array(
 		'title' => __('Typography', 'brilliance'),
-		'description' => sprintf(__('Upgrade to %s to control the gain full control over the typography of your site.', 'brilliance'), cpotheme_upgrade_link()),
 		'capability' => 'edit_theme_options',
 		'priority' => 45);
 		
@@ -130,6 +124,38 @@ if(!function_exists('cpotheme_metadata_sections')){
 if(!function_exists('cpotheme_metadata_customizer')){
 	function cpotheme_metadata_customizer($std = null){
 		$data = array();
+
+		$data['general_upsell'] = array(
+		'section'      => 'cpotheme_upsell',
+		'type'		   => 'epsilon-upsell',
+        'options'      => array(
+            esc_html__( 'Slider options', 'brilliance' ),
+            esc_html__( 'WooCommerce Integration', 'brilliance' ),
+            esc_html__( 'Reorder Sections', 'brilliance' ),
+            esc_html__( 'Section Description', 'brilliance' ),
+            esc_html__( 'Custom Colors', 'brilliance' ),
+            esc_html__( 'Custom Typography', 'brilliance' ),
+		    esc_html__( 'Dedicated Support Team', 'brilliance'),
+		    esc_html__( 'Updates + Feature releases for 1 year', 'brilliance'),
+        ),
+        'requirements' => array(
+            esc_html__( 'You can set the slider height. Also you can control the speed and the duration of a slide.', 'brilliance' ),
+            esc_html__( 'Now you can add your shop products on Homepage.', 'brilliance' ),
+            esc_html__( 'You can order Homepage sections anyway you want', 'brilliance' ),
+            esc_html__( 'For each section, apart from title one you can also add a description for users to better understand your sections content', 'brilliance' ),
+            esc_html__( 'You can change your site\'s colors directly from Customizer. Changes happen in real time.', 'brilliance' ),
+            esc_html__( 'You can change your site\'s typography directly from Customizer. Changes happen in real time.', 'brilliance' ),
+	   		esc_html__( 'Theme updates and support for 1 year - included with purchase', 'brilliance'),
+	   		esc_html__( 'Theme updates and support for 1 year - included with purchase', 'brilliance'),
+        ),
+
+        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
+        'second_button_url'  => cpotheme_upgrade_link(),
+        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
+        'separator' => '- or -'
+
+		);
 		
 		$data['general_logo'] = array(
 		'label' => __('Custom Logo', 'brilliance'),
@@ -163,14 +189,22 @@ if(!function_exists('cpotheme_metadata_customizer')){
 		'sanitize' => 'cpotheme_sanitize_bool',
 		'std' => '1');
 		
-		//Layout		
-		/*$data['general_credit'] = array(
-		'label' => __('Show Credit Link', 'brilliance'),
-		'section' => 'cpotheme_layout_general',
-		'type' => 'checkbox',
-		'sanitize' => 'cpotheme_sanitize_bool',
-		'default' => '1');*/
-		
+		$data['homepage_upsell'] = array(
+		'section'      => 'cpotheme_layout_home',
+		'type'		   => 'epsilon-upsell',
+        'options'      => array(
+            esc_html__( 'Reorder Sections', 'brilliance' ),
+        ),
+        'requirements' => array(
+            esc_html__( 'You can order Homepage sections anyway you want', 'brilliance' ),
+        ),
+        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
+        'second_button_url'  => cpotheme_upgrade_link(),
+        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
+        'separator' => '- or -'
+        );
+
 		$data['home_tagline'] = array(
 		'label' => __('Tagline Title', 'brilliance'),
 		'section' => 'cpotheme_layout_home',
@@ -179,6 +213,43 @@ if(!function_exists('cpotheme_metadata_customizer')){
 		'default' => __('Add your custom tagline here.', 'brilliance'),
 		'sanitize' => 'wp_kses_post',
 		'type' => 'textarea');
+
+		// Site Wide Structure
+		$data['general_upsell'] = array(
+		'section'      => 'cpotheme_layout_general',
+		'type'		   => 'epsilon-upsell',
+        'options'      => array(
+            esc_html__( 'Sidebar Position', 'brilliance' ),
+            esc_html__( 'Footer Widgets', 'brilliance' ),
+            esc_html__( 'Breadcrumbs', 'brilliance' ),
+            esc_html__( 'Language switcher', 'brilliance' ),
+            esc_html__( 'Shopping cart', 'brilliance' ),
+		    esc_html__( 'Social Links', 'brilliance'),
+		    esc_html__( 'Copyright text', 'brilliance'),
+        ),
+        'requirements' => array(
+            esc_html__( 'In the PRO version you can change the position of the sidebar', 'brilliance' ),
+            esc_html__( 'In the PRO version you have the option to add footer widgets. You can organize these widgets in 2,3,4 or 5 columns.', 'brilliance' ),
+            esc_html__( 'In the PRO version you can show/hide the breadcrumbs', 'brilliance' ),
+            esc_html__( 'In the PRO version you can show/hide the language switcher', 'brilliance' ),
+            esc_html__( 'In the PRO version you can show/hide the shopping cart.', 'brilliance' ),
+	   		esc_html__( 'In the PRO version you can add social icons in the footer.', 'brilliance'),
+	   		esc_html__( 'In the PRO version you can change the copyright text.', 'brilliance'),
+        ),
+
+        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
+        'second_button_url'  => cpotheme_upgrade_link(),
+        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
+        'separator' => '- or -'
+
+		);
+
+		$data['header_opaque'] = array(
+		'label' => __('Enable Opaque Header', 'brilliance'),
+		'section' => 'cpotheme_layout_general',
+		'type' => 'checkbox',
+		'default' => '0');
 		
 		//Homepage Slider
 		if(defined('CPOTHEME_USE_SLIDES') && CPOTHEME_USE_SLIDES == true){
@@ -215,6 +286,24 @@ if(!function_exists('cpotheme_metadata_customizer')){
 		
 		//Services layout
 		if(defined('CPOTHEME_USE_SERVICES') && CPOTHEME_USE_SERVICES == true){
+			$data['services_upsell'] = array(
+			'section'      => 'cpotheme_layout_services',
+			'type'		   => 'epsilon-upsell',
+	        'options'      => array(
+	            esc_html__( 'Services Columns', 'brilliance' ),
+	            esc_html__( 'Always display section', 'brilliance' ),
+	        ),
+	        'requirements' => array(
+	            esc_html__( 'You can select on how many Columns you want to show your services.', 'brilliance' ),
+	            esc_html__( 'In the PRO version you can show the homepage services in all pages.', 'brilliance' ),
+	        ),
+	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+	        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
+	        'second_button_url'  => cpotheme_upgrade_link(),
+	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
+	        'separator' => '- or -'
+			);
+
 			$data['home_services'] = array(
 			'label' => __('Services Description', 'brilliance'),
 			'section' => 'cpotheme_layout_services',
@@ -227,6 +316,24 @@ if(!function_exists('cpotheme_metadata_customizer')){
 		
 		//Services layout
 		if(defined('CPOTHEME_USE_TEAM') && CPOTHEME_USE_TEAM == true){
+			$data['team_upsell'] = array(
+			'section'      => 'cpotheme_layout_team',
+			'type'		   => 'epsilon-upsell',
+	        'options'      => array(
+	            esc_html__( 'Services Columns', 'brilliance' ),
+	            esc_html__( 'Always display section', 'brilliance' ),
+	        ),
+	        'requirements' => array(
+	            esc_html__( 'You can select on how many Columns you want to show your services.', 'brilliance' ),
+	            esc_html__( 'In the PRO version you can show the homepage services in all pages.', 'brilliance' ),
+	        ),
+	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+	        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
+	        'second_button_url'  => cpotheme_upgrade_link(),
+	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
+	        'separator' => '- or -'
+			);
+
 			$data['home_team'] = array(
 			'label' => __('Team Members Description', 'brilliance'),
 			'section' => 'cpotheme_layout_team',
@@ -239,6 +346,22 @@ if(!function_exists('cpotheme_metadata_customizer')){
 		
 		//Testimonials
 		if(defined('CPOTHEME_USE_TESTIMONIALS') && CPOTHEME_USE_TESTIMONIALS == true){
+			$data['testimonials_upsell'] = array(
+			'section'      => 'cpotheme_layout_testimonials',
+			'type'		   => 'epsilon-upsell',
+	        'options'      => array(
+	            esc_html__( 'Always display section', 'brilliance' ),
+	        ),
+	        'requirements' => array(
+	            esc_html__( 'In the PRO version you can show the homepage testimonials in all pages.', 'brilliance' ),
+	        ),
+	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+	        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
+	        'second_button_url'  => cpotheme_upgrade_link(),
+	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
+	        'separator' => '- or -'
+			);
+
 			$data['home_testimonials'] = array(
 			'label' => __('Testimonials Description', 'brilliance'),
 			'section' => 'cpotheme_layout_testimonials',
@@ -251,6 +374,24 @@ if(!function_exists('cpotheme_metadata_customizer')){
 		
 		//Clients
 		if(defined('CPOTHEME_USE_CLIENTS') && CPOTHEME_USE_CLIENTS == true){
+			$data['clients_upsell'] = array(
+			'section'      => 'cpotheme_layout_clients',
+			'type'		   => 'epsilon-upsell',
+	        'options'      => array(
+	            esc_html__( 'Clients Columns', 'brilliance' ),
+	            esc_html__( 'Always display section', 'brilliance' ),
+	        ),
+	        'requirements' => array(
+	            esc_html__( 'You can select on how many Columns you want to show your clients.', 'brilliance' ),
+	            esc_html__( 'In the PRO version you can show the homepage clients in all pages.', 'brilliance' ),
+	        ),
+	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+	        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
+	        'second_button_url'  => cpotheme_upgrade_link(),
+	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
+	        'separator' => '- or -'
+			);
+
 			$data['home_clients'] = array(
 			'label' => __('Clients Description', 'brilliance'),
 			'section' => 'cpotheme_layout_clients',
@@ -262,6 +403,24 @@ if(!function_exists('cpotheme_metadata_customizer')){
 		}
 		
 		//Blog Posts
+		$data['blog_upsell'] = array(
+		'section'      => 'cpotheme_layout_posts',
+		'type'		   => 'epsilon-upsell',
+        'options'      => array(
+            esc_html__( 'Blog Columns', 'brilliance' ),
+            esc_html__( 'Hide elements', 'brilliance' ),
+        ),
+        'requirements' => array(
+            esc_html__( 'You can select on how many columns you want to show your blog posts.', 'brilliance' ),
+            esc_html__( 'You can modify the appearance and behavior of your blog posts by enabling or disabling specific elements.', 'brilliance' ),
+        ),
+        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
+        'second_button_url'  => cpotheme_upgrade_link(),
+        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
+        'separator' => '- or -'
+		);
+
 		$data['home_posts'] = array(
 		'label' => __('Enable Posts On Homepage', 'brilliance'),
 		'section' => 'cpotheme_layout_posts',
