@@ -20,10 +20,13 @@ if(!function_exists('cpotheme_metadata_sections')){
 	function cpotheme_metadata_sections(){
 		$data = array();
 		
-		$data['cpotheme_upsell'] = array(
-		'title' => __('Brilliance Pro', 'brilliance'),
-		'capability' => 'edit_theme_options',
-		'priority' => 10);
+		$data['epsilon-section-pro'] = array(
+		'type' => 'epsilon-section-pro',
+		'title'       => esc_html__( 'LITE vs PRO comparison', 'brilliance' ),
+		'button_text' => esc_html__( 'Learn more', 'brilliance' ),
+		'button_url'  => esc_url_raw( admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+		'priority'    => 0
+		);
 
 		$data['cpotheme_management'] = array(
 		'title' => __('General Theme Options', 'brilliance'),

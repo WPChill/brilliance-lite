@@ -1,10 +1,10 @@
 <?php
 
-if ( ! class_exists( 'MT_Notify_System' ) ) {
+if ( ! class_exists( 'Brilliance_Notify_System' ) ) {
 	/**
-	 * Class MT_Notify_System
+	 * Class Brilliance_Notify_System
 	 */
-	class MT_Notify_System {
+	class Brilliance_Notify_System extends Epsilon_Notify_System {
 		/**
 		 * @param $ver
 		 *

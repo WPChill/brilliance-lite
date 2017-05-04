@@ -31,30 +31,30 @@ if ( is_admin() ) {
 	$brilliance_required_actions = array(
 		array(
 			"id"          => 'brilliance-req-ac-install-cpo-content-types',
-			"title"       => MT_Notify_System::create_plugin_requirement_title( __( 'Install: CPO Content Types', 'brilliance' ), __( 'Activate: CPO Content Types', 'brilliance' ), 'cpo-content-types' ),
+			"title"       => Brilliance_Notify_System::create_plugin_requirement_title( __( 'Install: CPO Content Types', 'brilliance' ), __( 'Activate: CPO Content Types', 'brilliance' ), 'cpo-content-types' ),
 			"description" => __( 'It is highly recommended that you install the CPO Content Types plugin. It will help you manage all the special content types that this theme supports.', 'brilliance' ),
-			"check"       => MT_Notify_System::has_import_plugin( 'cpo-content-types' ),
+			"check"       => Brilliance_Notify_System::has_import_plugin( 'cpo-content-types' ),
 			"plugin_slug" => 'cpo-content-types'
 		),
 		array(
 			"id"          => 'brilliance-req-ac-install-cpo-widgets',
-			"title"       => MT_Notify_System::create_plugin_requirement_title( __( 'Install: CPO Widgets', 'brilliance' ), __( 'Activate: CPO Widgets', 'brilliance' ), 'cpo-widgets' ),
+			"title"       => Brilliance_Notify_System::create_plugin_requirement_title( __( 'Install: CPO Widgets', 'brilliance' ), __( 'Activate: CPO Widgets', 'brilliance' ), 'cpo-widgets' ),
 			"description" => __( 'It is highly recommended that you install the CPO Widgets plugin. It will help you manage all the special widgets that this theme supports.', 'brilliance' ),
-			"check"       => MT_Notify_System::has_import_plugin( 'cpo-widgets' ),
+			"check"       => Brilliance_Notify_System::has_import_plugin( 'cpo-widgets' ),
 			"plugin_slug" => 'cpo-widgets'
 		),
 		array(
 			"id"          => 'brilliance-req-ac-install-wp-import-plugin',
-			"title"       => MT_Notify_System::wordpress_importer_title(),
-			"description" => MT_Notify_System::wordpress_importer_description(),
-			"check"       => MT_Notify_System::has_import_plugin( 'wordpress-importer' ),
+			"title"       => Brilliance_Notify_System::wordpress_importer_title(),
+			"description" => Brilliance_Notify_System::wordpress_importer_description(),
+			"check"       => Brilliance_Notify_System::has_import_plugin( 'wordpress-importer' ),
 			"plugin_slug" => 'wordpress-importer'
 		),
 		array(
 			"id"          => 'brilliance-req-ac-install-wp-import-widget-plugin',
-			"title"       => MT_Notify_System::widget_importer_exporter_title(),
-			'description' => MT_Notify_System::widget_importer_exporter_description(),
-			"check"       => MT_Notify_System::has_import_plugin( 'widget-importer-exporter' ),
+			"title"       => Brilliance_Notify_System::widget_importer_exporter_title(),
+			'description' => Brilliance_Notify_System::widget_importer_exporter_description(),
+			"check"       => Brilliance_Notify_System::has_import_plugin( 'widget-importer-exporter' ),
 			"plugin_slug" => 'widget-importer-exporter'
 		),
 		array(
@@ -63,14 +63,14 @@ if ( is_admin() ) {
 			"description" => esc_html__( 'Head over to our website and download the sample content data.', 'brilliance' ),
 			"help"        => '<a target="_blank"  href="https://www.cpothemes.com/sample-data/brilliance-pro-posts.xml">' . __( 'Posts', 'brilliance' ) . '</a>, 
 							   <a target="_blank"  href="https://www.cpothemes.com/sample-data/brilliance-pro-widgets.wie">' . __( 'Widgets', 'brilliance' ) . '</a>',
-			"check"       => MT_Notify_System::has_content(),
+			"check"       => Brilliance_Notify_System::has_content(),
 		),
 		array(
 			"id"    => 'brilliance-req-ac-install-data',
 			"title" => esc_html__( 'Import Sample Data', 'brilliance' ),
 			"help"  => '<a class="button button-primary" target="_blank"  href="' . self_admin_url( 'admin.php?import=wordpress' ) . '">' . __( 'Import Posts', 'brilliance' ) . '</a> 
 									   <a class="button button-primary" target="_blank"  href="' . self_admin_url( 'tools.php?page=widget-importer-exporter' ) . '">' . __( 'Import Widgets', 'brilliance' ) . '</a>',
-			"check" => MT_Notify_System::has_import_content(),
+			"check" => Brilliance_Notify_System::has_import_content(),
 		),
 	);
 	require get_template_directory() . '/core/welcome-screen/welcome-screen.php';

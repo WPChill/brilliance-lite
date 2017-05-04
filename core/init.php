@@ -24,7 +24,12 @@ if(!function_exists('cpotheme_setup')){
 		add_theme_support('custom-header', array('header-text' => false,'width' => 1600, 'height' => 500, 'flex-width' => true, 'flex-height' => true));
 		add_theme_support('custom-background', apply_filters('cpotheme_background_args', array('default-color' => 'ffffff')));
 		add_theme_support('automatic-feed-links');
+		
 		add_theme_support('woocommerce');
+		add_theme_support( 'wc-product-gallery-zoom' );
+	    add_theme_support( 'wc-product-gallery-lightbox' );
+	    add_theme_support( 'wc-product-gallery-slider' );
+	    
 		add_theme_support('bbpress');
 		
 		//Set content width for embeds

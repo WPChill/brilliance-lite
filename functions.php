@@ -19,7 +19,7 @@ define('CPOTHEME_PREMIUM_URL', 'http://www.cpothemes.com/theme/brilliance');
 require get_template_directory() . '/includes/libraries/epsilon-framework/class-epsilon-autoloader.php';
 $epsilon_framework_settings = array(
 		'controls' 	=> array( 'toggle', 'upsell' ), // array of controls to load
-		'sections' 	=> array( 'recommended-actions' ), // array of sections to load
+		'sections' 	=> array( 'recommended-actions', 'pro' ), // array of sections to load
 		'path'		=> '/includes/libraries'
 	);
 new Epsilon_Framework( $epsilon_framework_settings );
