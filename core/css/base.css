@@ -711,7 +711,10 @@ RESPONSIVE STYLES
 	/* MAIN MENU */
 	.menu-main { display:none; }
 	.menu-mobile-toggle { display:block; }
-	.menu-mobile { display:block; }	
+	.menu-mobile { display:block; }
+
+	/* Slider */
+	#slider .slider-slides .slide-caption { width: 100%; }
 	
 }
 
@@ -763,6 +766,10 @@ RESPONSIVE STYLES
 	/* INLINE IMAGES */
 	.alignleft, img.alignleft { max-width:40%; margin-right:10px; }
 	.alignright, img.alignright { max-width:40%; margin-left:10px; }
+
+	/* Slider */
+	#slider .slider-slides { height: auto;min-height: 500px; }
+	#slider.slider .slider-slides .slide-body { padding-top: 0; }
 		
 }
 
