@@ -1,3 +1,11 @@
+Version 1.2.3
+Improved Welcome Screen
+Fixed Bug #1 ( https://github.com/MachoThemes/brilliance-lite/issues/1 )
+Fixed Bug #3 ( https://github.com/MachoThemes/brilliance-lite/issues/3 )
+Fixed Bug #6 ( https://github.com/MachoThemes/brilliance-lite/issues/6 )
+Added edit links to portfolio items
+Removed Clients' descriptions setting
+
 Version 1.1.0
 Feature - Added support for services
 Feature - Added support for clients

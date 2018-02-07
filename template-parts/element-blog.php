@@ -3,9 +3,6 @@
 		<?php cpotheme_postpage_image(); ?>		
 	</div>
 	<div class="post-body<?php if(has_post_thumbnail()) echo ' post-body-image'; ?>">
-		<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="post-author">
-			<?php echo get_avatar(get_the_author_meta('ID'), 160); ?>
-		</a>
 		<?php cpotheme_postpage_title(); ?>
 		<div class="post-byline">
 			<?php wp_enqueue_style('cpotheme-fontawesome'); ?>

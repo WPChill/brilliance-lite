@@ -5,7 +5,7 @@ Description:Brilliance is a free multipurpose WordPress theme geared towards age
 Tags:one-column, two-columns, right-sidebar, full-width-template, sticky-post, theme-options, custom-background, custom-menu, featured-images, threaded-comments, translation-ready, rtl-language-support, editor-style
 Author:CPOThemes
 Author URI:http://www.cpothemes.com
-Version:1.2.2
+Version:1.2.3
 License:GNU General Public License 2.0 or later
 License URI:http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:brilliance
@@ -341,6 +341,7 @@ input[type=submit] { width:auto; -webkit-appearance:none; }
 .portfolio-item a:hover { text-decoration:none; }
 .portfolio-item:hover .portfolio-item-overlay { opacity:1; }
 .portfolio-item:hover img { -moz-transform:scale(1.1); -webkit-transform:scale(1.1); transform:scale(1.1); }
+.portfolio-item .post-edit-link{ position:absolute;left: 50%;bottom: 10px;z-index: 999999 }
 
 
 /* SERVICES */

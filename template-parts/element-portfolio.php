@@ -9,10 +9,10 @@
 			<?php if(has_excerpt()): ?>
 			<div class="portfolio-item-description">
 				<?php the_excerpt(); ?>
-				<?php //cpotheme_edit(); ?>
 			</div>
 			<?php endif; ?>
 		</div>
 		<?php the_post_thumbnail('portfolio', array('title' => '')); ?>
 	</a>
+	<?php cpotheme_edit(); ?>
 </div>

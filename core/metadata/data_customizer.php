@@ -394,15 +394,6 @@ if(!function_exists('cpotheme_metadata_customizer')){
 	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
 	        'separator' => '- or -'
 			);
-
-			$data['home_clients'] = array(
-			'label' => __('Clients Description', 'brilliance'),
-			'section' => 'cpotheme_layout_clients',
-			'empty' => true,
-			'multilingual' => true,
-			'default' => __('Featured clients', 'brilliance'),
-			'sanitize' => 'wp_kses_post',
-			'type' => 'textarea');
 		}
 		
 		//Blog Posts
