@@ -24,7 +24,7 @@ if(!function_exists('cpotheme_metadata_sections')){
 		'type' => 'epsilon-section-pro',
 		'title'       => esc_html__( 'LITE vs PRO comparison', 'brilliance' ),
 		'button_text' => esc_html__( 'Learn more', 'brilliance' ),
-		'button_url'  => esc_url_raw( admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+		'button_url'  => esc_url_raw( admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
 		'priority'    => 0
 		);
 
@@ -152,7 +152,7 @@ if(!function_exists('cpotheme_metadata_customizer')){
 	   		esc_html__( 'Theme updates and support for 1 year - included with purchase', 'brilliance'),
         ),
 
-        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
         'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
         'second_button_url'  => cpotheme_upgrade_link(),
         'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
@@ -201,7 +201,7 @@ if(!function_exists('cpotheme_metadata_customizer')){
         'requirements' => array(
             esc_html__( 'You can order Homepage sections anyway you want', 'brilliance' ),
         ),
-        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
         'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
         'second_button_url'  => cpotheme_upgrade_link(),
         'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
@@ -240,7 +240,7 @@ if(!function_exists('cpotheme_metadata_customizer')){
 	   		esc_html__( 'In the PRO version you can change the copyright text.', 'brilliance'),
         ),
 
-        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
         'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
         'second_button_url'  => cpotheme_upgrade_link(),
         'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
@@ -300,7 +300,7 @@ if(!function_exists('cpotheme_metadata_customizer')){
 	            esc_html__( 'You can select on how many Columns you want to show your services.', 'brilliance' ),
 	            esc_html__( 'In the PRO version you can show the homepage services in all pages.', 'brilliance' ),
 	        ),
-	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
 	        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
 	        'second_button_url'  => cpotheme_upgrade_link(),
 	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
@@ -330,7 +330,7 @@ if(!function_exists('cpotheme_metadata_customizer')){
 	            esc_html__( 'You can select on how many Columns you want to show your services.', 'brilliance' ),
 	            esc_html__( 'In the PRO version you can show the homepage services in all pages.', 'brilliance' ),
 	        ),
-	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
 	        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
 	        'second_button_url'  => cpotheme_upgrade_link(),
 	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
@@ -358,7 +358,7 @@ if(!function_exists('cpotheme_metadata_customizer')){
 	        'requirements' => array(
 	            esc_html__( 'In the PRO version you can show the homepage testimonials in all pages.', 'brilliance' ),
 	        ),
-	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
 	        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
 	        'second_button_url'  => cpotheme_upgrade_link(),
 	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
@@ -388,7 +388,7 @@ if(!function_exists('cpotheme_metadata_customizer')){
 	            esc_html__( 'You can select on how many Columns you want to show your clients.', 'brilliance' ),
 	            esc_html__( 'In the PRO version you can show the homepage clients in all pages.', 'brilliance' ),
 	        ),
-	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+	        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
 	        'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
 	        'second_button_url'  => cpotheme_upgrade_link(),
 	        'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
@@ -417,7 +417,7 @@ if(!function_exists('cpotheme_metadata_customizer')){
             esc_html__( 'You can select on how many columns you want to show your blog posts.', 'brilliance' ),
             esc_html__( 'You can modify the appearance and behavior of your blog posts by enabling or disabling specific elements.', 'brilliance' ),
         ),
-        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=cpotheme-welcome&tab=features' ),
+        'button_url'   => esc_url_raw( get_admin_url() . 'themes.php?page=brilliance-welcome&tab=features' ),
         'button_text'  => esc_html__( 'See PRO vs Lite', 'brilliance' ),
         'second_button_url'  => cpotheme_upgrade_link(),
         'second_button_text' => esc_html__( 'Get the PRO version!', 'brilliance' ),
