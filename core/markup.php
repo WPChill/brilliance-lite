@@ -10,6 +10,13 @@ if(!function_exists('cpotheme_page_title')){
 		echo '<'.$title_tag.' class="pagetitle-title heading">';
 		if(function_exists('is_woocommerce') && is_woocommerce()){
 			woocommerce_page_title();
+		}elseif ( is_home() && ! is_front_page() ) {
+			$page_for_posts = get_option( 'page_for_posts' );
+			if ( $page_for_posts ) {
+				echo get_the_title( $page_for_posts );
+			}else{
+				_e('Archive', 'brilliance');
+			}
 		}elseif(is_category() || is_tag() || is_tax()){
 			echo single_tag_title('', true);
 		}elseif(is_author()){

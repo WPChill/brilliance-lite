@@ -179,7 +179,7 @@ function cpotheme_show_posts(){
 //Return true if page title should be displayed
 function cpotheme_show_title(){
 	$display = false;
-	if(!is_front_page() && !is_home()){
+	if( ! is_front_page() ){
 		$display = true;
 	}
 	return $display;
