@@ -14,7 +14,6 @@ class CPO_Theme {
 		// Recomended Plugins
 		$this->plugins = array(
 			'kiwi-social-share' 		=> array( 'recommended' => true ),
-			'shortpixel-image-optimiser' => array( 'recommended' => true ),
 			'uber-nocaptcha-recaptcha'	=> array( 'recommended' => false ),
 		);
 
@@ -35,11 +34,18 @@ class CPO_Theme {
 				"plugin_slug" => 'cpo-companion',
 			),
 			array(
-				"id"          => 'brilliance-req-ac-install-cpo-companion',
+				"id"          => 'brilliance-req-ac-install-modula',
 				"title"       => CPOTheme_Notify_System::create_plugin_requirement_title( __( 'Install: Modula', 'brilliance' ), __( 'Activate: Modula', 'brilliance' ), 'modula-best-grid-gallery' ),
 				"description" => __( 'It is highly recommended that you install the Modula plugin.', 'brilliance' ),
 				"check"       => CPOTheme_Notify_System::has_plugin( 'modula-best-grid-gallery' ),
 				"plugin_slug" => 'modula-best-grid-gallery',
+			),
+			array(
+				"id"          => 'brilliance-req-ac-install-shortpixel',
+				"title"       => CPOTheme_Notify_System::create_plugin_requirement_title( __( 'Install: ShortPixel Image Optimizer', 'brilliance' ), __( 'Activate: ShortPixel Image Optimizer', 'brilliance' ), 'shortpixel-image-optimiser' ),
+				"description" => __( 'It is highly recommended that you install the ShortPixel Image Optimizer plugin.', 'brilliance' ),
+				"check"       => CPOTheme_Notify_System::has_plugin( 'shortpixel-image-optimiser' ),
+				"plugin_slug" => 'shortpixel-image-optimiser',
 			),
 		);
 		
@@ -123,6 +129,7 @@ class CPO_Theme {
 		$import_plugins = array(
 			'cpo-companion' => esc_html__( 'CPO Companion', 'brilliance' ),
 			'modula-best-grid-gallery' => esc_html__( 'Modula Gallery', 'brilliance' ),
+			'shortpixel-image-optimiser' => esc_html__( 'ShortPixel Image Optimizer', 'brilliance' ),
 		);
 
 		$plugins_html = '';

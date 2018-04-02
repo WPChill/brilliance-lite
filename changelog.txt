@@ -1,3 +1,7 @@
+Version 1.2.4
+Added ShortPixel as a recommended plugin.
+Fixed Modula recommendation bug.
+
 Version 1.2.3
 Improved Welcome Screen
 Fixed Bug #1 ( https://github.com/MachoThemes/brilliance-lite/issues/1 )
