@@ -1,5 +1,7 @@
 Version 1.2.6
 Minor Backend Tweaks
+Changed notice style
+Removed demo content files from theme
 
 Version 1.2.5
 Minor Fixes
