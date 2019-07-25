@@ -1,7 +1,7 @@
 <?php if(!isset($content_width)) $content_width = 640;
 define('CPOTHEME_ID', 'brilliance');
 define('CPOTHEME_NAME', 'Brilliance');
-define('CPOTHEME_VERSION', '1.2.5');
+define('CPOTHEME_VERSION', '1.2.6');
 //Other constants
 define('CPOTHEME_LOGO_WIDTH', '170');
 define('CPOTHEME_USE_SLIDES', true);
