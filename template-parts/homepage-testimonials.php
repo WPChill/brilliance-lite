@@ -9,9 +9,9 @@
 			<?php $count = 0; ?>
 			<?php while($feature_posts->have_posts()): $feature_posts->the_post(); ?>
 			<?php ob_start(); ?>
-			<div class="testimonial-page" id="testimonial-<?php echo $count; ?>" data-slide="<?php echo $count; ?>">
+			<button class="testimonial-page" id="testimonial-<?php echo $count; ?>" data-slide="<?php echo $count; ?>">
 				<?php the_post_thumbnail(array(150,150)); ?>
-			</div>
+			</button>
 			<?php $testimonial_images .= ob_get_clean(); ?>
 			<div class="testimonial" id="testimonial-<?php echo $count; ?>-content" data-slide="<?php echo $count; ?>">
 				<div class="column col4">
@@ -32,7 +32,7 @@
 		</div>
 		<div class="testimonial-pages">
 			<?php echo $testimonial_images; ?>
-		</div>					
+		</div>
 		<div class='clear'></div>
 	</div>
 </div>

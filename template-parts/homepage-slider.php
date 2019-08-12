@@ -22,13 +22,13 @@
 		</div>
 		<?php endforeach; ?>
 	</div>
-	<?php if(sizeof($query->posts) > 1): ?>
-	<?php wp_enqueue_script('cpotheme_cycle'); ?>
-	<div class="slider-pager">
-		<div class="container">
-			<div class="slider-pages"></div>
+	<?php if(count($query->posts) > 1): ?>
+		<?php wp_enqueue_script('cpotheme_cycle'); ?>
+		<div class="slider-pager">
+			<div class="container">
+				<div class="slider-pages"></div>
+			</div>
 		</div>
-	</div>
 	<?php endif; ?>
-	<?php endif; ?>			
-</div> 			
+	<?php endif; ?>
+</div>
