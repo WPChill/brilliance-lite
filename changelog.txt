@@ -1,3 +1,6 @@
+Version 1.2.7
+Improved accesibility with keyboard navigation
+
 Version 1.2.6
 Minor Backend Tweaks
 Changed notice style
