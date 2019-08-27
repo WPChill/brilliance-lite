@@ -44,8 +44,8 @@ class CPO_Theme {
 			),
 			array(
 				'id'          => 'brilliance-req-ac-install-kali-forms',
-				'title'       => CPOTheme_Notify_System::create_plugin_requirement_title( __( 'Install: Kaliforms', 'brilliance' ), __( 'Activate: Kaliforms', 'brilliance' ), 'kali-forms' ),
-				'description' => __( 'It is highly recommended that you install the Kaliforms plugin.', 'brilliance' ),
+				'title'       => CPOTheme_Notify_System::create_plugin_requirement_title( __( 'Install: Kali Forms', 'brilliance' ), __( 'Activate: Kali Forms', 'brilliance' ), 'kali-forms' ),
+				'description' => __( 'It is highly recommended that you install the Kali Forms plugin.', 'brilliance' ),
 				'check'       => CPOTheme_Notify_System::has_plugin( 'kali-forms' ),
 				'plugin_slug' => 'kali-forms',
 			),
