@@ -1,3 +1,10 @@
+Version 1.2.8
+Security Fix
+Polylnag compatibility fix
+Removed epsilon submodule and included directly in theme
+Added class check sanitization
+
+
 Version 1.2.7
 Improved accesibility with keyboard navigation
 
