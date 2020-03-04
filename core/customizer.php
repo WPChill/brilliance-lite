@@ -43,16 +43,28 @@ function cpotheme_customizer($customize){
 		$default = isset($setting_data['default']) ? $setting_data['default'] : '';
 		
 		$optionsets = array('default' => 'default');
-		if($multilingual && function_exists('icl_get_languages')){
-			$languages = icl_get_languages();
-			global $sitepress;
-			$default_language = $sitepress->get_default_language();
-			foreach($languages as $current_language){
-				if($current_language['language_code'] != $default_language){
-					$optionsets[$current_language['language_code']] = $current_language['translated_name'];
-				}
-			}
-		}
+        if($multilingual ){
+            if ( function_exists('icl_object_id') && class_exists('SitePress') ) {
+                $languages = icl_get_languages();
+                global $sitepress;
+                $default_language = $sitepress->get_default_language();
+                foreach($languages as $current_language){
+                    if($current_language['language_code'] != $default_language){
+                        $optionsets[$current_language['language_code']] = $current_language['translated_name'];
+                    }
+                }
+            }elseif ( function_exists('pll_languages_list') ) {
+                $languages = pll_languages_list(array('hide_if_empty' => 0));
+                $default_language = pll_default_language();
+                if ( !empty( $languages ) ) {
+                    foreach($languages as $current_language){
+                        if($current_language != $default_language){
+                            $optionsets[$current_language] = strtoupper( $current_language );
+                        }
+                    }
+                }
+            }
+        }
 		
 		$setting_args = array(
 		'type' => 'option',

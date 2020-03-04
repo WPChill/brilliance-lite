@@ -81,12 +81,17 @@ if(!function_exists('cpotheme_update_option')){
 if(!function_exists('cpotheme_wpml_current_language')){
 	function cpotheme_wpml_current_language(){
 		$language_code = '';
-		if(cpotheme_wpml_active()){		
-			$default_language = cpotheme_wpml_default_language();
-			$active_language = ICL_LANGUAGE_CODE;
-			if($active_language != $default_language)
-				$language_code = '_'.$active_language;
-		}
+        if(cpotheme_wpml_active()){
+            $default_language = cpotheme_wpml_default_language();
+            $active_language = ICL_LANGUAGE_CODE;
+            if($active_language != $default_language)
+                $language_code = '_'.$active_language;
+        }elseif ( function_exists( 'pll_current_language' ) && function_exists( 'pll_default_language' ) ) {
+            $default_language = pll_default_language();
+            $active_language = pll_current_language();
+            if($active_language != $default_language)
+                $language_code = '_'.$active_language;
+        }
 		return $language_code;
 	}
 }
