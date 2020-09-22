@@ -14,9 +14,8 @@ class CPO_Theme {
 		// Recomended Plugins
 		$this->plugins = array(
 			'kali-forms'                 => array( 'recommended' => true ),
-			'simple-author-box'          => array( 'recommended' => true ),
-			'kiwi-social-share'          => array( 'recommended' => false ),
-			'uber-nocaptcha-recaptcha'   => array( 'recommended' => false ),
+			'modula-best-grid-gallery'   => array( 'recommended' => true ),
+			'strong-testimonials'        => array( 'recommended' => true ),
 		);
 
 		// Recomendeed Actions
