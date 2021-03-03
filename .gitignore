@@ -5,3 +5,4 @@ brilliance.zip
 .jscsrc
 .jshintignore
 .jshintrc
+package-lock.json
